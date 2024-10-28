@@ -15,7 +15,7 @@ export class AppComponent {
     afterRender(() => {
       setTimeout(() => {
         document.querySelector('#loader')?.classList.add('invisible');
-      }, 500);
+      }, 400);
       console.log('Flowbite loaded');
     });
   }
