@@ -11,6 +11,9 @@ export class FlowbiteService {
     if (isPlatformBrowser(this.platformId)) {
       import('flowbite').then((flowbite) => {
         callback(flowbite);
+        setTimeout(() => {
+          document.querySelector('#loader')?.classList.add('invisible');
+        }, 400);
       });
 
 

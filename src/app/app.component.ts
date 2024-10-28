@@ -11,9 +11,7 @@ import { FlowbiteService } from './services/flowbite.service';
   styles: [],
 })
 export class AppComponent {
-  constructor(private _flowbiteService: FlowbiteService) {
-
-  }
+  constructor(private _flowbiteService: FlowbiteService) {}
 
   ngOnInit(): void {
     this._flowbiteService.loadFlowbite((flowbite) => {
@@ -22,5 +20,7 @@ export class AppComponent {
         flowbite
       );
     });
+
+
   }
 }
