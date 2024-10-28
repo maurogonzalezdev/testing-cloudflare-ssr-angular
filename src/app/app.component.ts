@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterRender, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { FlowbiteService } from './services/flowbite.service';
@@ -11,7 +11,14 @@ import { FlowbiteService } from './services/flowbite.service';
   styles: [],
 })
 export class AppComponent {
-  constructor(private _flowbiteService: FlowbiteService) {}
+  constructor(private _flowbiteService: FlowbiteService) {
+    afterRender(() => {
+      setTimeout(() => {
+        document.querySelector('#loader')?.classList.add('invisible');
+      }, 500);
+      console.log('Flowbite loaded');
+    });
+  }
 
   ngOnInit(): void {
     this._flowbiteService.loadFlowbite((flowbite) => {
@@ -20,6 +27,5 @@ export class AppComponent {
         flowbite
       );
     });
-
   }
 }
