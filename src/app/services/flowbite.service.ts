@@ -29,12 +29,12 @@ export class FlowbiteService {
         themeToggleLightIcon!.classList.remove('hidden');
         setTimeout(() => {
           document.querySelector('#loader')?.classList.add('invisible');
-        }, 100);
+        }, 124);
       } else {
         themeToggleDarkIcon!.classList.remove('hidden');
         setTimeout(() => {
           document.querySelector('#loader')?.classList.add('invisible');
-        }, 100);
+        }, 124);
       }
 
       var themeToggleBtn = document.getElementById('theme-toggle');
