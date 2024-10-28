@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { FlowbiteService } from './services/flowbite.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,5 +11,11 @@ import { RouterOutlet } from '@angular/router';
   styles: [],
 })
 export class AppComponent {
-  title = 'portfolio';
+  constructor(private _flowbiteService: FlowbiteService) {}
+
+  ngOnInit(): void {
+    this._flowbiteService.loadFlowbite((flowbite) => {
+      console.log('Flowbite loaded', flowbite);
+    });
+  }
 }
