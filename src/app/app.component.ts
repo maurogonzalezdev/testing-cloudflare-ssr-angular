@@ -16,7 +16,7 @@ export class AppComponent {
   ngOnInit(): void {
     this._flowbiteService.loadFlowbite((flowbite) => {
       console.log(
-        "Oh, hi there. My name is Mauricio González, i'm using the amazing Flowbite components library:",
+        "Oh, hi there. My name is Mauricio González. I'm using the amazing Flowbite components library:",
         flowbite
       );
     });
