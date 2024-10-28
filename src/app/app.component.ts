@@ -12,12 +12,7 @@ import { FlowbiteService } from './services/flowbite.service';
 })
 export class AppComponent {
   constructor(private _flowbiteService: FlowbiteService) {
-    afterRender(() => {
-      setTimeout(() => {
-        document.querySelector('#loader')?.classList.add('invisible');
-      }, 400);
-      console.log('Flowbite loaded');
-    });
+
   }
 
   ngOnInit(): void {
