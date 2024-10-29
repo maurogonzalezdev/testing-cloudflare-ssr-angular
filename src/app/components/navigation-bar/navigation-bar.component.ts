@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navigation-bar.component.html',
-  styles: ``,
 })
 export class NavigationBarComponent implements OnInit {
   private _isExpanded: boolean = false;
@@ -22,7 +21,7 @@ export class NavigationBarComponent implements OnInit {
     return this._isExpanded;
   }
 
-  public setExpandedStatus(){
-    this._isExpanded = !this._isExpanded
+  public setExpandedStatus() {
+    this._isExpanded = !this._isExpanded;
   }
 }

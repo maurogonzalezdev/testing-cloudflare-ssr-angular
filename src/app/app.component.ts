@@ -4,13 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { FlowbiteService } from './services/flowbite.service';
 
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { ScrollButtonComponent } from './components/scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavigationBarComponent],
+  imports: [RouterOutlet, NavigationBarComponent, ScrollButtonComponent],
   templateUrl: './app.component.html',
-  styles: [],
 })
 export class AppComponent {
   constructor(private _flowbiteService: FlowbiteService) {}
