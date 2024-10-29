@@ -6,7 +6,7 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <script >
+    <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       if (
         localStorage.getItem("color-theme") === "dark" ||
@@ -22,10 +22,17 @@
       body {
         background-color: #172554;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
   <body>
-    <div id="loader" class="visible fixed left-0 top-0 w-full h-full bg-slate-800">
+    <div
+      id="loader"
+      class="visible fixed left-0 top-0 w-full h-full bg-slate-800"
+    >
       <div class="min-h-screen gap-6 flex items-center justify-center">
         <div
           class="w-36 h-36 border-8 rounded-full border-t-lime-400 animate-spin"

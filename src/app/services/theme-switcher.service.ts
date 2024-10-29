@@ -1,16 +1,13 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Injectable, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ThemeSwitcherService implements OnInit {
+export class ThemeSwitcherService {
+  constructor(@Inject(PLATFORM_ID) private _platformId: any) {}
 
-  constructor(@Inject(PLATFORM_ID) private _platformId: any) {
-    console.log('service');
-  }
-
-  ngOnInit(): void {
+  public initThemeService(): void {
     if (isPlatformBrowser(this._platformId)) {
       if (
         localStorage.getItem('color-theme') === 'dark' ||
@@ -35,11 +32,10 @@ export class ThemeSwitcherService implements OnInit {
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         themeToggleLightIcon!.classList.remove('hidden');
-        this.removeLoaderSpinner(240);
+        this._removeLoaderSpinner(240);
       } else {
         themeToggleDarkIcon!.classList.remove('hidden');
-        this.removeLoaderSpinner(240);
-
+        this._removeLoaderSpinner(240);
       }
 
       const themeToggleBtn = document.getElementById('theme-toggle');
@@ -73,7 +69,7 @@ export class ThemeSwitcherService implements OnInit {
     }
   }
 
-  public removeLoaderSpinner(time: number): void {
+  private _removeLoaderSpinner(time: number): void {
     setTimeout(() => {
       document.querySelector('#loader')?.classList.add('invisible');
     }, time);

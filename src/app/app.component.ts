@@ -1,16 +1,16 @@
-import { afterRender, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { FlowbiteService } from './services/flowbite.service';
-import { ThemeSwitcherService } from './services/theme-switcher.service';
+
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavigationBarComponent],
   templateUrl: './app.component.html',
   styles: [],
-  providers: [ThemeSwitcherService]
 })
 export class AppComponent {
   constructor(private _flowbiteService: FlowbiteService) {}
@@ -22,7 +22,5 @@ export class AppComponent {
         flowbite
       );
     });
-
-
   }
 }
