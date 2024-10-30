@@ -4,7 +4,6 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-scroll-button',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './scroll-button.component.html',
 })
 export class ScrollButtonComponent {

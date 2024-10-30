@@ -1,5 +1,8 @@
 @if(getShowScrollStatus){
-<button class="fixed bottom-28 right-28" (click)="scrollToTop()">
-  Scroll to top
+<button class="fixed z-50 bottom-8 right-8 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold " (click)="scrollToTop()">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+    <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+</svg>
+<span class="sr-only">Go to top</span>
 </button>
 }
