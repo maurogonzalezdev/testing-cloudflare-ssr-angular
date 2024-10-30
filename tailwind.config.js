@@ -44,6 +44,9 @@ module.exports = {
           900: "#0A0A0A",
           950: "#050505",
         },
+        extra: {
+          yellow: "#EBD669",
+        },
       },
     },
     fontFamily: {
