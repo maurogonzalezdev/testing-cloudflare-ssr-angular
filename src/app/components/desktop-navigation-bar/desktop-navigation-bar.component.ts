@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { ThemeSwitcherService } from '../../services/theme-switcher.service';
-import { CommonModule } from '@angular/common';
-import { NavLinksService } from '../../services/nav-links.service';
+
 import { NavLink } from '../../interfaces/nav-link.interface';
-import { RouterLink } from '@angular/router';
+import { NavLinksService } from '../../services/nav-links.service';
+import { ThemeSwitcherService } from '../../services/theme-switcher.service';
 
 @Component({
   selector: 'app-desktop-navigation-bar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
   templateUrl: './desktop-navigation-bar.component.html',
-  styles: ``,
 })
 export class DesktopNavigationBarComponent {
   private _navLinks: NavLink[] = [];
