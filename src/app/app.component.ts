@@ -3,26 +3,26 @@ import { RouterOutlet } from '@angular/router';
 
 import { FlowbiteService } from './services/flowbite.service';
 
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { MobileNavigationBarComponent } from './components/navigation-bar/mobile-navigation-bar.component';
 import { ScrollButtonComponent } from './components/scroll-button/scroll-button.component';
 import { DesktopNavigationBarComponent } from './components/desktop-navigation-bar/desktop-navigation-bar.component';
 import { isPlatformBrowser } from '@angular/common';
-import { FooterComponent } from "./components/footer/footer.component";
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    NavigationBarComponent,
+    MobileNavigationBarComponent,
     ScrollButtonComponent,
     DesktopNavigationBarComponent,
-    FooterComponent
-],
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  private _isDesktop?: boolean;
+  private _isDesktop: boolean = true;
 
   constructor(
     private _flowbiteService: FlowbiteService,
@@ -49,13 +49,21 @@ export class AppComponent {
 
       if (window.innerWidth >= 1024) {
         this._isDesktop = true;
+        this._removeLoaderSpinner(80);
       } else {
         this._isDesktop = false;
+        this._removeLoaderSpinner(80);
       }
     }
   }
 
   get getIsDesktopStatus(): boolean {
     return this._isDesktop ?? false;
+  }
+
+  private _removeLoaderSpinner(time: number): void {
+    setTimeout(() => {
+      document.querySelector('#loader')?.classList.add('invisible');
+    }, time);
   }
 }

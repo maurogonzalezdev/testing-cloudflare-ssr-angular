@@ -34,10 +34,8 @@ export class ThemeSwitcherService {
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         themeToggleLightIcon!.classList.remove('hidden');
-        this._removeLoaderSpinner(240);
       } else {
         themeToggleDarkIcon!.classList.remove('hidden');
-        this._removeLoaderSpinner(240);
       }
 
       const themeToggleBtn = document.getElementById('theme-toggle');
@@ -69,11 +67,5 @@ export class ThemeSwitcherService {
         }
       });
     }
-  }
-
-  private _removeLoaderSpinner(time: number): void {
-    setTimeout(() => {
-      document.querySelector('#loader')?.classList.add('invisible');
-    }, time);
   }
 }

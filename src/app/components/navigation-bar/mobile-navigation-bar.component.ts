@@ -3,12 +3,12 @@ import { ThemeSwitcherService } from '../../services/theme-switcher.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-navigation-bar',
+  selector: 'app-mobile-navigation-bar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './navigation-bar.component.html',
+  templateUrl: './mobile-navigation-bar.component.html',
 })
-export class NavigationBarComponent implements OnInit {
+export class MobileNavigationBarComponent implements OnInit {
   private _isExpanded: boolean = false;
 
   constructor(private _themeSwitcherService: ThemeSwitcherService) {}
