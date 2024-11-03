@@ -32,10 +32,10 @@ export class ThemeSwitcherService {
           window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         themeToggleLightIcon!.classList.remove('hidden');
-        this._removeLoaderSpinner(260);
+        this._removeLoaderSpinner(240);
       } else {
         themeToggleDarkIcon!.classList.remove('hidden');
-        this._removeLoaderSpinner(260);
+        this._removeLoaderSpinner(240);
       }
 
       const themeToggleBtn = document.getElementById('theme-toggle');
