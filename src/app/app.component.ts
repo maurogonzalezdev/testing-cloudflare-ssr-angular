@@ -13,6 +13,9 @@ import { ScrollButtonComponent } from './components/scroll-button/scroll-button.
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  private _isDesktop?: boolean;
+
+
   constructor(private _flowbiteService: FlowbiteService) {}
 
   ngOnInit(): void {
@@ -22,5 +25,25 @@ export class AppComponent {
         flowbite
       );
     });
+
+    window.addEventListener('resize', ({ target }: UIEvent) => {
+      let e = target as Window;
+      if (e.innerWidth >= 1024) {
+        this._isDesktop = true;
+      } else {
+        this._isDesktop = false;
+      }
+    });
+
+    if (window.innerWidth >= 1024) {
+      this._isDesktop = true;
+    } else {
+      this._isDesktop = false;
+    }
+  }
+
+
+  get getIsDesktopStatus(): boolean {
+    return this._isDesktop ?? false;
   }
 }
