@@ -10,10 +10,20 @@ import { CommonModule } from '@angular/common';
 })
 export class NavigationBarComponent implements OnInit {
   private _isExpanded: boolean = false;
+  private _isDesktop?: boolean;
 
   constructor(private _themeSwitcherService: ThemeSwitcherService) {}
 
   ngOnInit(): void {
+    window.addEventListener('resize', ({ target }: UIEvent) => {
+      let e = target as Window;
+      if (e.innerWidth >= 1024) {
+        this._isDesktop = true;
+      } else {
+        this._isDesktop = false;
+      }
+    });
+
     this._themeSwitcherService.initThemeService();
   }
 
@@ -23,5 +33,9 @@ export class NavigationBarComponent implements OnInit {
 
   public setExpandedStatus() {
     this._isExpanded = !this._isExpanded;
+  }
+
+  get getIsDesktopStatus(): boolean {
+    return this._isDesktop ?? false;
   }
 }
