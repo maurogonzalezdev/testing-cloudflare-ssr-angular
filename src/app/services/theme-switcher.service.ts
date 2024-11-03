@@ -9,6 +9,8 @@ export class ThemeSwitcherService {
 
   public initThemeService(): void {
     if (isPlatformBrowser(this._platformId)) {
+      // TODO: El servicio se esta instanciando cada vez que hay un window resize -> moverlo a un componente padre
+      console.log('init');
       if (
         localStorage.getItem('color-theme') === 'dark' ||
         (!('color-theme' in localStorage) &&
