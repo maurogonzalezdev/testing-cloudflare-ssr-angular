@@ -1,10 +1,14 @@
 <header>
-
   @if (getIsDesktopStatus) {
   <app-desktop-navigation-bar></app-desktop-navigation-bar>
   }@else{<app-navigation-bar></app-navigation-bar>}
 </header>
 
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
 <section class="bg-white dark:bg-dark-500">
   <div class="py-8 px-6 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-32">
     <a

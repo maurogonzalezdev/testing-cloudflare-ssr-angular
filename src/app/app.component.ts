@@ -7,6 +7,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { ScrollButtonComponent } from './components/scroll-button/scroll-button.component';
 import { DesktopNavigationBarComponent } from './components/desktop-navigation-bar/desktop-navigation-bar.component';
 import { isPlatformBrowser } from '@angular/common';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import { isPlatformBrowser } from '@angular/common';
     NavigationBarComponent,
     ScrollButtonComponent,
     DesktopNavigationBarComponent,
-  ],
+    FooterComponent
+],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
