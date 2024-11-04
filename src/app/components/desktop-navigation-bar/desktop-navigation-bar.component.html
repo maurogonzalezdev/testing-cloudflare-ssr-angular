@@ -4,13 +4,31 @@
   <div
     class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
   >
+<!--   @if(isDark){
     <a href="/">
       <img
         id="site-logo"
         class="mr-3 h-6 sm:h-9"
         alt="mauro-gonzalez.dev Logo"
+        src="logo-dark.svg"
+        loading="eager"
+        type="img/svg"
       />
     </a>
+  }@else{
+
+    <a href="/">
+      <img
+        id="site-logo"
+        class="mr-3 h-6 sm:h-9"
+        alt="mauro-gonzalez.dev Logo"
+        src="logo-light.svg"
+loading="eager"
+      />
+    </a>
+  } -->
+
+  <app-logo [setActiveStyle]="exportStyle!"></app-logo>
 
     <div
       class="flex flex-row flex-nowrap items-center gap-8 rounded-xl px-5 py-1 bg-light-400 dark:bg-dark-600"
