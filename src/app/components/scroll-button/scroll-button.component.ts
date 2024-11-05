@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scroll-button',
@@ -11,7 +12,7 @@ export class ScrollButtonComponent {
   private _showScrollHeight = 200;
   private _hideScrollHeight = 200;
 
-  constructor() {}
+  constructor(private _router: Router, private _location: Location) {}
 
   @HostListener('window:scroll', [])
   private _onWindowScroll() {
@@ -32,13 +33,21 @@ export class ScrollButtonComponent {
   }
 
   public scrollToTop() {
-    (function smoothscroll() {
-      const currentScroll =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      if (currentScroll > 0) {
-        window.scrollTo(0, 0);
-      }
-    })();
+    const currentScroll =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.scrollTo(0, 0);
+      this._removeHashFromUrl();
+    }
+  }
+  private _removeHashFromUrl(): void {
+    let hasHash: boolean = this._router.url.includes('#');
+    if (hasHash) {
+      this._location.go('/');
+      return;
+    }
+
+    return;
   }
 
   get getShowScrollStatus(): boolean {

@@ -17,7 +17,6 @@ import { LogoComponent } from '../logo/logo.component';
   standalone: true,
   templateUrl: './desktop-navigation-bar.component.html',
   imports: [RouterLink, RouterLinkWithHref, RouterModule, LogoComponent],
-  styles: `.color-secondary{fill: red}`,
 })
 export class DesktopNavigationBarComponent {
   private _navLinks: NavLink[] = [];
@@ -51,4 +50,5 @@ export class DesktopNavigationBarComponent {
       this._scroller.scrollToAnchor(anchor);
     });
   }
+
 }
