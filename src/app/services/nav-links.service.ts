@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { NavLink } from '../interfaces/nav-link.interface';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NavLinksService {
+export class NavLinksService implements OnInit{
   private _navLinks: NavLink[] = [];
 
-  constructor() {
+  constructor(private _translateService: TranslateService) {
     this._navLinks = [
       {
         title: 'home',
@@ -48,8 +49,17 @@ export class NavLinksService {
       },
     ];
   }
+  ngOnInit(): void {
+    this._changeUrlLocale()
+  }
 
   get getNavLinks(): NavLink[] {
     return this._navLinks;
+  }
+
+  private _changeUrlLocale(): void{
+    this._translateService.stream("NAVBAR.HOME").subscribe(data => {
+      console.log(data);
+    })
   }
 }

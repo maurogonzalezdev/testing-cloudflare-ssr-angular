@@ -1,0 +1,30 @@
+{
+  "CORE": {
+    "NAVBAR": [
+      {
+        "title": "inicio",
+        "url": "/"
+      },
+      {
+        "title": "sobre mí",
+        "url": "#about"
+      },
+      {
+        "title": "habilidades",
+        "url": "#skills"
+      },
+      {
+        "title": "proyectos",
+        "url": "#projects"
+      },
+      {
+        "title": "contacto",
+        "url": "#contact"
+      },
+      {
+        "title": "blog",
+        "url": "/blog"
+      }
+    ]
+  }
+}

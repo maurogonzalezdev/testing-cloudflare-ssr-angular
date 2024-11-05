@@ -8,6 +8,7 @@ import { ScrollButtonComponent } from './components/scroll-button/scroll-button.
 import { DesktopNavigationBarComponent } from './components/desktop-navigation-bar/desktop-navigation-bar.component';
 import { isPlatformBrowser } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ScrollButtonComponent,
     DesktopNavigationBarComponent,
     FooterComponent,
+    TranslateModule
   ],
   templateUrl: './app.component.html',
 })
@@ -26,7 +28,7 @@ export class AppComponent {
 
   constructor(
     private _flowbiteService: FlowbiteService,
-    @Inject(PLATFORM_ID) private _platformId: any
+    @Inject(PLATFORM_ID) private _platformId: any,
   ) {}
 
   ngOnInit(): void {
