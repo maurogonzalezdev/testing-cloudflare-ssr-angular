@@ -1,0 +1,15 @@
+<div>
+  <button
+    (click)="changeDropdownStatus()"
+    (mouseenter)="exchangeIconEnter()"
+    (mouseleave)="exchangeIconLeave()"
+    class="pl-2.5 pr-2 py-1.5 flex flex-nowrap items-center text-sm font-medium text-center text-gray-500 bg-gray-100 hover:bg-gray-200 dark:bg-dark-500 dark:hover:bg-dark-700 dark:text-white rounded-l-md"
+    type="button"
+  >
+    <img src="{{ activeLocale.flag }}" alt="" class="w-6 mr-1.5" />
+    <span>ENG</span>
+    <div class="w-3.5 ml-1.5">
+      <app-exchange-icon [setActiveStyle]="exportStyle!"></app-exchange-icon>
+    </div>
+  </button>
+</div>
