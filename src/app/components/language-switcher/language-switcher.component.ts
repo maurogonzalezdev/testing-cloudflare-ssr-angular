@@ -1,41 +1,26 @@
-import { Component, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Locale } from '../../interfaces/locale.interface';
 import { TranslateService } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ExchangeIconComponent } from '../exchange-icon/exchange-icon.component';
 import { ThemeSwitcherService } from '../../services/theme-switcher.service';
 
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  imports: [CommonModule, ExchangeIconComponent],
+  imports: [CommonModule, ExchangeIconComponent, NgOptimizedImage],
   templateUrl: './language-switcher.component.html',
   styles: ``,
 })
-export class LanguageSwitcherComponent {
-  private _dropdownIsExpanded: boolean = false;
-
+export class LanguageSwitcherComponent implements OnInit {
   @Output()
   public exportStyle?: 'dark' | 'light';
 
   public activeLocale: Locale = {
-    flag: 'images/flags/spain-flag.webp',
-    name: 'español',
-    value: 'es',
+    flag: '',
+    name: '',
+    value: '',
   };
-
-  public locales: Locale[] = [
-    {
-      flag: 'images/flags/usa-flag.webp',
-      name: 'english',
-      value: 'en',
-    },
-    {
-      flag: 'images/flags/spain-flag.webp',
-      name: 'español',
-      value: 'es',
-    },
-  ];
 
   constructor(
     private _translateService: TranslateService,
@@ -45,24 +30,48 @@ export class LanguageSwitcherComponent {
       this.exportStyle = data;
     });
   }
-
-  public changeLanguage(locale: 'es' | 'en'): void {
-    this._translateService.use(locale);
+  ngOnInit(): void {
+    if (this._translateService.getDefaultLang() === 'en') {
+      this.activeLocale = {
+        flag: '/images/flags/usa-flag.webp',
+        name: 'English',
+        value: 'en',
+      };
+    } else {
+      this.activeLocale = {
+        flag: '/images/flags/spain-flag.webp',
+        name: 'Español',
+        value: 'es',
+      };
+    }
   }
 
-  get getDropdownStatus(): boolean {
-    return this._dropdownIsExpanded;
-  }
-
-  public changeDropdownStatus(): void {
-    this._dropdownIsExpanded = !this._dropdownIsExpanded;
-    return;
+  public changeLanguage(): void {
+    if (this._translateService.getDefaultLang() === 'en') {
+      this._translateService.setDefaultLang('es');
+      setTimeout(() => {
+        this.activeLocale = {
+          flag: '/images/flags/spain-flag.webp',
+          name: 'Español',
+          value: 'es',
+        };
+      }, 50);
+    } else {
+      this._translateService.setDefaultLang('en');
+      setTimeout(() => {
+        this.activeLocale = {
+          flag: '/images/flags/usa-flag.webp',
+          name: 'English',
+          value: 'en',
+        };
+      }, 50);
+    }
   }
 
   public exchangeIconEnter(): void {
     const changeLanguageIcon = document.getElementById('exchange-icon')
       ?.lastChild as HTMLElement;
-    changeLanguageIcon.setAttribute('fill', 'red');
+    changeLanguageIcon.setAttribute('fill', '#8FB6FF');
   }
 
   public exchangeIconLeave(): void {

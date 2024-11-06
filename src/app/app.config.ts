@@ -3,7 +3,7 @@ import {
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { provideClientHydration } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { translateLoaderFactory } from './utils/translate-loader-factory.util';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(),
     provideHttpClient(withFetch()),
     importProvidersFrom(
