@@ -3,29 +3,26 @@
     (mouseenter)="exchangeIconEnter()"
     (mouseleave)="exchangeIconLeave()"
     (click)="changeLanguage()"
-    class="pl-2.5 pr-2 py-1.5 flex flex-nowrap items-center text-sm font-medium text-center text-gray-500 bg-gray-100 hover:bg-gray-200 dark:bg-dark-500 dark:hover:bg-dark-700 dark:text-white rounded-l-md"
+    class="pl-2.5 pr-2 py-1.5 flex flex-nowrap items-center justify-between text-sm font-medium text-center text-gray-500 bg-gray-100 hover:bg-gray-200 dark:bg-dark-500 dark:hover:bg-dark-700 dark:text-white rounded-l-md min-w-24"
     type="button"
   >
+  <div class="relative w-9 h-5 mr-1.5">
     <img
-      [ngSrc]="'/images/flags/usa-flag.webp'"
-      width="50"
-      height="25"
+      [ngSrc]="'/images/flags/us-flag.gif'"
       alt="{{ activeLocale.name }}"
-      class="mr-1.5"
       [ngClass]="{ hidden: activeLocale.value !== 'en' }"
       priority
+      fill
     />
 
     <img
-      [ngSrc]="'/images/flags/spain-flag.webp'"
-      width="50"
-      height="25"
+      [ngSrc]="'/images/flags/sp-flag.gif'"
       alt="{{ activeLocale.name }}"
-      class="mr-1.5"
       [ngClass]="{ hidden: activeLocale.value !== 'es' }"
       priority
+      fill
     />
-
+  </div>
     <span>{{ activeLocale.value }}</span>
     <div class="w-3.5 ml-1.5">
       <app-exchange-icon [setActiveStyle]="exportStyle!"></app-exchange-icon>

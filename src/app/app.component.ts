@@ -8,7 +8,9 @@ import { ScrollButtonComponent } from './components/scroll-button/scroll-button.
 import { DesktopNavigationBarComponent } from './components/desktop-navigation-bar/desktop-navigation-bar.component';
 import { isPlatformBrowser } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+import es from '../../public/i18n/es.json';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +31,10 @@ export class AppComponent {
   constructor(
     private _flowbiteService: FlowbiteService,
     @Inject(PLATFORM_ID) private _platformId: any,
-  ) {}
+    private _translateService: TranslateService
+  ) {
+    this._translateService.setTranslation('es', es);
+  }
 
   ngOnInit(): void {
     this._flowbiteService.loadFlowbite((flowbite) => {
@@ -51,10 +56,8 @@ export class AppComponent {
 
       if (window.innerWidth >= 1024) {
         this._isDesktop = true;
-        this._removeLoaderSpinner(80);
       } else {
         this._isDesktop = false;
-        this._removeLoaderSpinner(80);
       }
     }
   }
@@ -63,9 +66,4 @@ export class AppComponent {
     return this._isDesktop ?? false;
   }
 
-  private _removeLoaderSpinner(time: number): void {
-    setTimeout(() => {
-      document.querySelector('#loader')?.classList.add('invisible');
-    }, time);
-  }
 }
