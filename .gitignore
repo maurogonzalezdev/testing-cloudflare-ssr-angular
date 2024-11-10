@@ -86,3 +86,7 @@ Thumbs.db
 # PaaS, SaaS & BaaS
 .netlify/
 .vercel/
+
+# wrangler files
+.wrangler
+.dev.vars
